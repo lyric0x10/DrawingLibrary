@@ -1,20 +1,17 @@
--- Roblox Drawing Library Implementation
--- Replicates Synapse X Drawing Library functionality using Roblox GUI elements
-
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 
 local Player = Players.LocalPlayer
-local PlayerGui = Player:WaitForChild("PlayerGui")
+local CoreGui = game:GetService("CoreGui")
 
 -- Create main ScreenGui container
 local DrawingGui = Instance.new("ScreenGui")
 DrawingGui.Name = "DrawingLibrary"
 DrawingGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 DrawingGui.ResetOnSpawn = false
-DrawingGui.Parent = PlayerGui
+DrawingGui.Parent = CoreGui
 
 -- Drawing Library Module
 local DrawingLibrary = {}
@@ -800,3 +797,4 @@ game:GetService("Players").PlayerRemoving:Connect(function(player)
         Drawing.clear()
     end
 end)
+return Drawing
